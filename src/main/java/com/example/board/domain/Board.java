@@ -1,6 +1,7 @@
 package com.example.board.domain;
 
 import com.example.board.dto.BoardDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ public class Board  extends Timestamped{
     private String author;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     public Board(String title, String content, String author, String password) {
