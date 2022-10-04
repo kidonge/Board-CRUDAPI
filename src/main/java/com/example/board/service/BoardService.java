@@ -2,6 +2,7 @@ package com.example.board.service;
 
 import com.example.board.domain.Board;
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.BoardNoPwdDto;
 import com.example.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +22,19 @@ public class BoardService {
 
     // 전체 조회
     @Transactional
-    public List<Board> showAllBoard(){
-        return boardRepository.findAll();
+    public List<BoardNoPwdDto> showAllBoard(){
+        List<Board> list = boardRepository.findAll();
+        List<BoardNoPwdDto> listb = new ArrayList<>();
+
+        for(int i = 0; i < list.size(); i++){
+            BoardNoPwdDto boardNoPwdDto = new BoardNoPwdDto(list.get(i));
+            listb.add(boardNoPwdDto);
+        }
+
+        return listb;
+
+
+//        return boardRepository.findAll();
     }
 
     // 하나만 조회
