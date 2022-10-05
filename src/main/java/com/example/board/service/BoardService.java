@@ -4,6 +4,7 @@ import com.example.board.domain.Board;
 import com.example.board.dto.BoardDto;
 import com.example.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,8 @@ public class BoardService {
     // 전체 조회
     @Transactional
     public List<Board> showAllBoard(){
-        return boardRepository.findAll();
+        return boardRepository.findAllByOrderByCreatedAtDesc();
+//        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, ("createdAt")));
     }
 
     // 하나만 조회
@@ -45,11 +47,9 @@ public class BoardService {
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-        if(boardDto.getPassword().equals(board.getPassword())) {
-            return true;
-        }
-        else
-            return false;
+
+        return boardDto.getPassword().equals(board.getPassword());
+
     }
 
 
