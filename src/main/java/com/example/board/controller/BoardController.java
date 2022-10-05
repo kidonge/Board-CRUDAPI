@@ -20,7 +20,7 @@ public class BoardController {
 
     // 전체 게시글 조회
     @GetMapping("/api/post")
-    public List<BoardNoPwdDto> getAllBoard(){
+    public List<Board> getAllBoard(){
       return boardService.showAllBoard();
     }
 
