@@ -2,6 +2,7 @@ package com.example.board.controller;
 
 import com.example.board.domain.Board;
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.BoardNoPwdDto;
 import com.example.board.repository.BoardRepository;
 import com.example.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class BoardController {
 
     // 전체 게시글 조회
     @GetMapping("/api/post")
-    public List<Board> getAllBoard(){
+    public List<BoardNoPwdDto> getAllBoard(){
       return boardService.showAllBoard();
     }
 

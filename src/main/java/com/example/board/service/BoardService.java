@@ -2,6 +2,7 @@ package com.example.board.service;
 
 import com.example.board.domain.Board;
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.BoardNoPwdDto;
 import com.example.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +26,7 @@ public class BoardService {
     public List<Board> showAllBoard(){
         return boardRepository.findAllByOrderByCreatedAtDesc();
 //        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, ("createdAt")));
+
     }
 
     // 하나만 조회
@@ -47,10 +50,9 @@ public class BoardService {
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-
         return boardDto.getPassword().equals(board.getPassword());
-
     }
+
 
 
     // 게시글 삭제

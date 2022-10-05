@@ -1,6 +1,7 @@
 package com.example.board.domain;
 
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.BoardNoPwdDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,6 @@ public class Board  extends Timestamped{
     private String author;
 
     @Column(nullable = false)
-    @JsonIgnore
     private String password;
 
     public Board(String title, String content, String author, String password) {
@@ -41,6 +41,12 @@ public class Board  extends Timestamped{
         this.content = boardDto.getContent();
         this.author = boardDto.getAuthor();
         this.password = boardDto.getPassword();
+    }
+
+    public Board(BoardNoPwdDto boardNoPwdDto) {
+        this.title = boardNoPwdDto.getTitle();
+        this.content = boardNoPwdDto.getContent();
+        this.author = boardNoPwdDto.getAuthor();
     }
 
     public void update(BoardDto boardDto){
