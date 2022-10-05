@@ -58,12 +58,7 @@ public class BoardService {
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-        if(boardDto.getPassword().equals(board.getPassword())) {
-            return true;
-        }
-        else
-            return false;
-    }
+        return boardDto.getPassword().equals(board.getPassword());
 
 
     // 게시글 삭제
