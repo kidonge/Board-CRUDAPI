@@ -20,6 +20,35 @@ public class BoardApplication {
     public CommandLineRunner demo(BoardRepository boardRepository) {
         return (args) -> {
             boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+            boardRepository.save(new Board("제목", "내용", "저자", "1234"));
+
+
         };
     }
 

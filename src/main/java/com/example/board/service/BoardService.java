@@ -5,6 +5,8 @@ import com.example.board.dto.BoardDto;
 import com.example.board.dto.BoardNoPwdDto;
 import com.example.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,8 +25,9 @@ public class BoardService {
 
     // 전체 조회
     @Transactional
-    public List<Board> showAllBoard(){
-        return boardRepository.findAllByOrderByCreatedAtDesc();
+    public Page<Board> showAllBoard(Pageable pageable){
+        return boardRepository.findAll(pageable);
+//        return boardRepository.findAllByOrderByCreatedAtDesc();
 //        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, ("createdAt")));
 
     }

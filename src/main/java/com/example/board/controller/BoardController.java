@@ -6,6 +6,10 @@ import com.example.board.dto.BoardNoPwdDto;
 import com.example.board.repository.BoardRepository;
 import com.example.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +24,8 @@ public class BoardController {
 
     // 전체 게시글 조회
     @GetMapping("/api/post")
-    public List<Board> getAllBoard(){
-      return boardService.showAllBoard();
+    public Page<Board> getAllBoard(@PageableDefault(page = 0, size = 15, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable){
+      return boardService.showAllBoard(pageable);
     }
 
     // 하나 게시물 조회
